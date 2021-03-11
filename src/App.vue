@@ -1,21 +1,32 @@
 <template>
-  <ToastUIEditor :height="200" />
+  <TUIEditor :height="200" ref="aa"/>
 
   <hr>
   <hr>
   <hr>
 
-  <ToastUIEditor :height="200" />
+  <TUIEditor :height="200" ref="aa" />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import ToastUIEditor from './components/TUIEditor.vue'
+import { defineComponent, onMounted, ref } from 'vue'
+import TUIEditor from './components/TUIEditor.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    ToastUIEditor
+    TUIEditor
+  },
+  setup:() => {
+    const aa = ref();
+    onMounted(() => {
+       
+      aa.value.alert();
+      
+    })
+   return {
+     aa
+   }
   }
 })
 </script>
